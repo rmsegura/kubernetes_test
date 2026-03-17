@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass 
+metadata:
+  name: slow
+provisioner: kubernetes.1o/gce-pd 
+parameters:
+  # Google Cloud Storage https://cloud.google.com/compute/disks-image-pricing
+  type: pd-standard
