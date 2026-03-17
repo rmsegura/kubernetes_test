@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass 
+metadata:
+  name: fast
+provisioner: kubernetes.1o/gce-pd 
+parameters:
+  # Google Cloud https://cloud.google.com/compute/disks-image-pricing
+  type: pd-ssd
