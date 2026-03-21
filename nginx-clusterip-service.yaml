@@ -4,6 +4,8 @@ metadata:
   name: nginx 
 spec:
   type: ClusterIP 
+  selector:
+    project: abc
   ports:
     - targetPort: 80
       port: 80
