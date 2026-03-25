@@ -1,0 +1,12 @@
+apiversion: networking.k8s.io/v1
+kind: NetworkPolicy 
+metadata:
+  name: network-policyl
+  namespace: default
+spec:
+  podselector: 
+    matchLabels:
+      app: webappl
+  policyTypes:
+    - Ingress
+    - Egress
