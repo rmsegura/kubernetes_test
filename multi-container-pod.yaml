@@ -11,10 +11,10 @@ spec:
       image: nginx
       volumeMounts:
         - name: log-files
-          mountPath: /var/log/nginx
+          mountPath: /opt/log/nginx
     - name: web-logger  
       image: busybox:1.30.1
-      command: ['sh', '-c', 'while true; do cat /var/log/nginx/access.log; sleep 30; done']
+      command: ['sh', '-c', 'while true; do cat /opt/log/nginx/access.log; sleep 30; done']
       volumeMounts:
         - name: log-files
           mountPath: /opt/log/nginx
