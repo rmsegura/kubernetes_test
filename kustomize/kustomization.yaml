@@ -1,5 +1,5 @@
 secretGenerator:
   - name: kustomize-user-creds1
-    literals:
-      - username=admin
-      - password=admin123
+    files:
+      - username.txt
+      - password.txt
