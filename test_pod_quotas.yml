@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: quota-pod 
+spec:
+  containers:
+  - name: nginx 
+    image: nginx 
+    resources:
+      requests:
+        memory: "800Mi"
+        cpu: "800m"
+      limits:
+        memory: "600Mi"
+        cpu: "400m"
