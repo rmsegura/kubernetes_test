@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: team1-pod-manager
+  namespace: team1
+subjects:
+- kind: ServiceAccount
+  name: svca
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: team1-pod-manager
+  apiGroup: ""
