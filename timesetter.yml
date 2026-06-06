@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: time-setter
+spec:
+  containers:
+  - name: time-setter
+    image: busybox:latest
+    command: [ "sh", "-c", "date -s '2024-01-01 00:00:00'" ]
+    securityContext:
+      privileged: true
+      capabilities:
+        add:
+        - SYS_TIME
+    volumeMounts:
+    - mountPath: /etc/localtime
+      name: host-time
+      readOnly: true
+    - mountPath: /etc/timezone
+      name: host-timezone
+      readOnly: true
+  volumes:
+  - name: host-time
+    hostPath:
+      path: /etc/localtime
+  - name: host-timezone
+    hostPath:
+      path: /etc/timezone
+  hostPID: true
+  restartPolicy: Never
